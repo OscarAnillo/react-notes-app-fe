@@ -1,7 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
 }
 .App {
+  font-family: 'Open Sans', sans-serif;
+  text-align: left;
+}
+.note-div {
+  padding: 1em;
+}
+.note-div h1 {
+  font-weight: 700;
+}
+.note-div p {
+  font-weight: 400;
+  color: #b8b6b6;
+}
+.note-div form {
+  margin: 1em 0;
   text-align: center;
+}
+.note-div form input {
+  border: 1px solid #333;
+  border-radius: 36px;
+  color: rgba(0, 0, 0, .5);
+  margin-bottom: 1em;
+  padding: 1em;
+  width: 92%;
+}
+.note-div form button {
+  background-color: rgb(75, 106, 151);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin: 0 auto;
+  padding: 1em 2em;
+  text-shadow: 1px 1px 1px #000;
+  text-transform: uppercase;
+  width: 100%;
 }
