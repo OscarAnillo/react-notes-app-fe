@@ -6,6 +6,15 @@ export const NotesComponents = () => {
     const [notesData, setNotesData] = useState([])
     const date =  new Date();
 
+    useEffect(() => {
+        axios
+        .get("http://localhost:3005/api/notes")
+        .then((res) => {
+            setNotesData(notesData.concat(res.data))
+        })
+        .catch( console.log )
+    },[setNotesData])
+
     const submitHandler = (e) => {
         e.preventDefault();
         if(!userInput){
@@ -16,19 +25,11 @@ export const NotesComponents = () => {
             note: userInput
         }).then((res) => {
             setNotesData(notesData.concat(res.data))
-
-        })
+        }).catch( console.log)
+        setUserInput("")
     }
 
-    useEffect(() => {
-        axios
-        .get("http://localhost:3005/api/notes")
-        .then((res) => {
-            console.log(res.data)
-            setNotesData(notesData.concat(res.data))
-        })
-        .catch( console.log )
-    }, [setNotesData])
+    
 
     return (
         <div className="note-div">
@@ -38,10 +39,14 @@ export const NotesComponents = () => {
                 <input type="text" placeholder="Add a note..." value={userInput} onChange={(e) => setUserInput(e.target.value)}/>
                 <button>Send</button>
             </form>
-            {notesData.map((item) => (
-                <div key={item._id}>
+            <hr />
+            {notesData && notesData.map((item) => (
+                <div key={item._id} className="map-div">
                     <li>{item.note}</li>
+                    <div className="map-row">
                     <p>{date.toLocaleTimeString()}</p>
+                    <p className="close">x</p>
+                    </div>
                 </div>
 
             ))}

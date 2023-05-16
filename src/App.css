@@ -31,6 +31,11 @@
   padding: 1em;
   width: 92%;
 }
+.note-div form input::placeholder {
+  color: #c9c7c7;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
 .note-div form button {
   background-color: rgb(75, 106, 151);
   border: none;
@@ -38,8 +43,34 @@
   color: #fff;
   font-weight: 700;
   letter-spacing: 3px;
-  margin: 0 auto;
+  margin: 0 auto 2em auto;
   padding: 1em 2em;
   text-transform: uppercase;
   width: 100%;
+}
+.map-div {
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
+  margin: .5em 0;
+  padding: .5em;
+}
+.map-div li {
+  color: #3d3d3d;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+.map-div p {
+  font-size: .6rem;
+  font-weight: 500;
+  color: #b8b6b6;
+  padding-top: .5em;
+}
+.map-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} 
+.map-row .close {
+  color: rgb(255, 0, 0);
+  font-weight: 400;
 }
