@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 .App {
   font-family: 'Open Sans', sans-serif;
@@ -33,13 +34,12 @@
 .note-div form button {
   background-color: rgb(75, 106, 151);
   border: none;
-  border-radius: 6px;
+  border-radius: 26px;
   color: #fff;
   font-weight: 700;
   letter-spacing: 3px;
   margin: 0 auto;
   padding: 1em 2em;
-  text-shadow: 1px 1px 1px #000;
   text-transform: uppercase;
   width: 100%;
 }
