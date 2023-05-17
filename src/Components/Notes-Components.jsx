@@ -10,10 +10,12 @@ export const NotesComponents = () => {
         axios
         .get("http://localhost:3005/api/notes")
         .then((res) => {
-            setNotesData(notesData.concat(res.data))
+            setNotesData(res.data);
         })
-        .catch( console.log )
-    },[setNotesData])
+        .catch((err) => {
+            console.log(err)
+        });
+    }, [setNotesData])
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -23,14 +25,21 @@ export const NotesComponents = () => {
         }
         axios.post("http://localhost:3005/api/notes", {
             note: userInput
-        }).then((res) => {
-            setNotesData(notesData.concat(res.data))
-        }).catch( console.log)
+        })
+        .then((res) => {
+            setNotesData([...notesData, res.data])
+        })
+        .catch( console.log )
         setUserInput("")
     }
 
-    
+    const clickHandlerDelete = (id) => {
+        axios.delete(`http://localhost:3005/api/notes/${id}`);
+        const filterNotes = notesData.filter((item) => item._id !== id);
+        setNotesData(filterNotes)
+    }
 
+    
     return (
         <div className="note-div">
             <h1>Today</h1>
@@ -40,12 +49,16 @@ export const NotesComponents = () => {
                 <button>Send</button>
             </form>
             <hr />
-            {notesData && notesData.map((item) => (
+            {notesData.map((item) => (
                 <div key={item._id} className="map-div">
-                    <li>{item.note}</li>
-                    <div className="map-row">
-                    <p>{date.toLocaleTimeString()}</p>
-                    <p className="close">x</p>
+                    <div className="inner-map-div">
+                        <ul>
+                            <li>{item.note}</li>
+                        </ul>
+                        <div className="map-row">
+                        <p>{date.toLocaleTimeString()}</p>
+                        <button type="submit" className="close" onClick={() => clickHandlerDelete(item._id)} role="button">x</button>
+                    </div>
                     </div>
                 </div>
 

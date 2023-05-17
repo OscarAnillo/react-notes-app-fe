@@ -54,10 +54,17 @@
   margin: .5em 0;
   padding: .5em;
 }
+.inner-map-div {
+  width: 95%;
+  max-width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
 .map-div li {
   color: #3d3d3d;
   font-weight: 400;
   letter-spacing: 2px;
+  line-height: 25px;
 }
 .map-div p {
   font-size: .6rem;
@@ -65,12 +72,16 @@
   color: #b8b6b6;
   padding-top: .5em;
 }
+
 .map-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* border: 1px solid red;s */
 } 
 .map-row .close {
+  background-color: transparent;
+  border: none;
   color: rgb(255, 0, 0);
   font-weight: 400;
 }
