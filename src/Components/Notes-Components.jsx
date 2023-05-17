@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export const NotesComponents = () => {
     const [userInput, setUserInput] = useState("");
@@ -52,7 +53,7 @@ export const NotesComponents = () => {
                 <div key={item._id} className="map-div">
                     <div className="inner-map-div">
                         <ul>
-                            <li>{item.note}</li>
+                            <Link to="/notes"><li>{item.note}</li></Link>
                         </ul>
                         <div className="map-row">
                         <p>{item.date}</p>
