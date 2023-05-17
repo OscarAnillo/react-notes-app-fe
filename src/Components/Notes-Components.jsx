@@ -39,7 +39,6 @@ export const NotesComponents = () => {
         setNotesData(filterNotes)
     }
 
-    
     return (
         <div className="note-div">
             <h1>Today</h1>
@@ -56,7 +55,7 @@ export const NotesComponents = () => {
                             <li>{item.note}</li>
                         </ul>
                         <div className="map-row">
-                        <p>{date.toLocaleTimeString()}</p>
+                        <p>{item.date}</p>
                         <button type="submit" className="close" onClick={() => clickHandlerDelete(item._id)} role="button">x</button>
                     </div>
                     </div>
