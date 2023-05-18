@@ -98,3 +98,50 @@
   transform: translate(-50%, -50%);
   text-align: center;
 }
+
+@media(min-width: 768px) {
+  .note-div {
+    max-width: 650px;
+    margin: 0 auto;
+  }
+  .note-div h1 {
+    font-size: 3rem;
+    letter-spacing: 3px;
+  }
+  .note-div p {
+    font-size: 1.1rem;
+  }
+  .note-div form {
+    margin: 1em 0;
+    text-align: center;
+  }
+  .note-div form input {
+    width: 100%;
+    max-width: 620px;
+  }
+  .map-div {
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
+    margin: .5em 0;
+    padding: .5em;
+  }
+  .inner-map-div {
+    max-width: 600px;
+  }
+  .map-div li {
+    color: #3d3d3d;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 25px;
+    
+  }
+  .map-div p {
+    font-size: .8rem;
+    font-weight: 500;
+    color: #b8b6b6;
+    padding-top: .5em;
+  }
+  .map-row .close {
+    cursor: pointer;
+  }
+}
