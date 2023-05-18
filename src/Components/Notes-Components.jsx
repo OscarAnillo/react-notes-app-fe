@@ -2,10 +2,15 @@ import { useState, useEffect } from "react";
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
+import { useDispatch } from 'react-redux'
+import { setTitleSelection, resetTitle } from "../Redux/features/note-slice";
+
+
 export const NotesComponents = () => {
     const [userInput, setUserInput] = useState("");
     const [notesData, setNotesData] = useState([])
     const date =  new Date();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         axios
@@ -28,7 +33,8 @@ export const NotesComponents = () => {
             note: userInput
         })
         .then((res) => {
-            setNotesData([...notesData, res.data])
+            setNotesData([...notesData, res.data]);
+            dispatch(setTitleSelection([...notesData, res.data]));
         })
         .catch( console.log )
         setUserInput("")
@@ -37,7 +43,7 @@ export const NotesComponents = () => {
     const clickHandlerDelete = (id) => {
         axios.delete(`http://localhost:3005/api/notes/${id}`);
         const filterNotes = notesData.filter((item) => item._id !== id);
-        setNotesData(filterNotes)
+        setNotesData(filterNotes);
     }
 
     return (
@@ -53,7 +59,7 @@ export const NotesComponents = () => {
                 <div key={item._id} className="map-div">
                     <div className="inner-map-div">
                         <ul>
-                            <Link to="/notes"><li>{item.note}</li></Link>
+                            <Link to={`/note/${item.note}`}><li>{item.note}</li></Link>
                         </ul>
                         <div className="map-row">
                         <p>{item.date}</p>
